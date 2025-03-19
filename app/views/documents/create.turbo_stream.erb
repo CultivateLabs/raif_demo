@@ -1,0 +1,9 @@
+<% if @document.persisted? %>
+  <%= turbo_stream.update "document-summary" do %>
+    Summary generating...
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace "document-form" do %>
+    <%= render "documents/form", document: @document %>
+  <% end %>  
+<% end %>

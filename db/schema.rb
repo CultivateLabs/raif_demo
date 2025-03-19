@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_19_213713) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_19_214807) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "documents", force: :cascade do |t|
+    t.text "content"
+    t.text "summary"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_documents_on_user_id"
+  end
 
   create_table "raif_agent_invocations", force: :cascade do |t|
     t.string "llm_model_key", null: false
@@ -142,6 +151,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_19_213713) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  add_foreign_key "documents", "users"
   add_foreign_key "raif_conversation_entries", "raif_conversations"
   add_foreign_key "raif_user_tool_invocations", "raif_conversation_entries"
   add_foreign_key "sessions", "users"

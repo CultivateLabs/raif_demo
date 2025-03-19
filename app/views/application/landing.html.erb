@@ -1,12 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <h3 class="mb-4">Conversation Demo</h3>
+      <h3 class="my-4">Conversation Demo</h3>
       <%= raif_conversation(@conversation) %>
     </div>
     <div class="col-md-4">
-      <h3 class="mb-4">Task Demo</h3>
+      <%= turbo_stream_from :document_summaries %>
       
+      <h3 class="my-4">Task Demo</h3>
+      <%= render "documents/form", document: Document.new %>
+      <div id="document-summary" class="mt-5">
+      </div>
     </div>
     <div class="col-md-4">
       
