@@ -37,12 +37,12 @@ Raif.configure do |config|
   # A lambda that returns true if the current user is authorized to access admin controllers.
   # By default it returns false, so you must implement this in your application to use the admin controllers.
   # If your application's user model has an admin? method, you could use something like this:
-  # config.authorize_admin_controller_action = ->{ current_user&.admin? }
+  config.authorize_admin_controller_action = -> { Current.user.present? }
 
   # A lambda that returns true if the current user is authorized to access non-admin controllers.
   # By default it returns false, so you must implement this in your application to use the non-admin controllers.
   # If you wanted to allow access to all logged in users, you could use something like this:
-  # config.authorize_controller_action = ->{ current_user.present? }
+  config.authorize_controller_action = -> { Current.user.present? }
 
   # The system prompt intro for Raif::Task instances. Defaults to "You are a helpful assistant."
   # config.task_system_prompt_intro = "You are a helpful assistant."

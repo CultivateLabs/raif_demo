@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_19_142441) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_19_213713) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -43,7 +43,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_19_142441) do
     t.datetime "completed_at"
     t.datetime "failed_at"
     t.text "user_message"
-    t.text "model_raw_response"
+    t.text "raw_response"
     t.text "model_response_message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -99,7 +99,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_19_142441) do
   create_table "raif_tasks", force: :cascade do |t|
     t.string "type", null: false
     t.text "prompt"
-    t.text "response"
+    t.text "raw_response"
     t.string "creator_type", null: false
     t.bigint "creator_id", null: false
     t.text "system_prompt"

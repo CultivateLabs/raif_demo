@@ -435,6 +435,7 @@ DEPENDENCIES
   rails (~> 8.0.2)
   rubocop-rails-omakase
   selenium-webdriver
+  simple_form
   solid_cable
   solid_cache
   solid_queue
