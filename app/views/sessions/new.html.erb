@@ -20,12 +20,12 @@
           <%= form_with url: session_path, class: "needs-validation" do |form| %>
             <div class="mb-3">
               <%= form.label :email_address, class: "form-label" %>
-              <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], class: "form-control" %>
+              <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] || "demo@example.com", class: "form-control" %>
             </div>
             
             <div class="mb-3">
               <%= form.label :password, class: "form-label" %>
-              <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, class: "form-control" %>
+              <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", value: "password", maxlength: 72, class: "form-control" %>
             </div>
             
             <div class="d-grid gap-2">

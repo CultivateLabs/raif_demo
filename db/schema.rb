@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_19_214807) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_20_182519) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -24,6 +24,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_19_214807) do
   end
 
   create_table "raif_agent_invocations", force: :cascade do |t|
+    t.string "type", null: false
     t.string "llm_model_key", null: false
     t.text "task"
     t.text "system_prompt"

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CultivateLabs/raif.git
-  revision: 49acd95532a74a18015bd7dae580a10913cbf6eb
+  revision: f4f3941aaf0561b4f74082477a9c09d6c65b87b1
   specs:
     raif (1.0.0)
       anthropic-rb
@@ -13,7 +13,7 @@ GIT
       rails (>= 7.1)
       reverse_markdown
       ruby-openai
-      simple_form
+      turbo-rails
 
 GEM
   remote: https://rubygems.org/

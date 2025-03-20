@@ -63,6 +63,7 @@ class CreateRaifTables < ActiveRecord::Migration[8.0]
     end
 
     create_table :raif_agent_invocations do |t|
+      t.string :type, null: false
       t.string :llm_model_key, null: false
       t.text :task
       t.text :system_prompt
