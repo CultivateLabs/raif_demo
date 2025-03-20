@@ -1,7 +1,7 @@
 class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
-    @document.user_id = Current.user.id
+    @document.user_id = current_user.id
     if @document.save
       SummarizeDocumentJob.perform_later(@document)
     end
