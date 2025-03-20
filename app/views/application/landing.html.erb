@@ -13,7 +13,16 @@
       </div>
     </div>
     <div class="col-md-4">
+      <%= turbo_stream_from :agent_tasks %>
       
+      <h3 class="my-4">Agent Demo</h3>
+      <%= form_with url: agents_path, method: :post do |form| %>
+        <%= form.text_field :task, placeholder: "Enter a task" %>
+        <%= form.submit "Run Agent", class: "btn btn-primary" %>
+      <% end %>
+
+      <div id="agent-progress" class="mt-5">
+      </div>
     </div>
   </div>
 </div>

@@ -1,0 +1,9 @@
+<% if params[:task].present? %>
+  <%= turbo_stream.update "agent-progress" do %>
+    Running agent...
+  <% end %>
+<% else %>
+  <%= turbo_stream.update "agent-progress" do %>
+    Add a task to run the agent
+  <% end %>
+<% end %>

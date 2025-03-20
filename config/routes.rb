@@ -5,9 +5,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resource :session
-  resource :chat, only: [ :show ]
   resources :passwords, param: :token
-
+  resources :agents, only: [ :create ]
   mount Raif::Engine => "/raif"
 
   # Defines the root path route ("/")
