@@ -8,7 +8,7 @@ class RunAgentJob < ApplicationJob
       creator: creator
     )
 
-    agent_invocation.run! do |agent_invocation, conversation_history_entry|
+    agent_invocation.run! do |conversation_history_entry|
       Turbo::StreamsChannel.broadcast_append_to(
         :agent_tasks,
         target: "agent-progress",
