@@ -1,27 +1,48 @@
-<div class="container">
-  <div class="row">
+<div class="container py-5">
+  <div class="row g-4">
     <div class="col-md-4">
-      <h3 class="my-4">Conversation Demo</h3>
-      <%= raif_conversation(@conversation) %>
+      <div class="card h-100 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h3 class="h5 mb-0">Conversation Demo</h3>
+        </div>
+        <div class="card-body">
+          <%= raif_conversation(@conversation) %>
+        </div>
+      </div>
     </div>
     <div class="col-md-4">
       <%= turbo_stream_from :document_summaries %>
       
-      <h3 class="my-4">Task Demo</h3>
-      <%= render "documents/form", document: Document.new %>
-      <div id="document-summary" class="mt-5">
+      <div class="card h-100 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h3 class="h5 mb-0">Task Demo</h3>
+        </div>
+        <div class="card-body">
+          <%= render "documents/form", document: Document.new %>
+          <div id="document-summary" class="mt-4">
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-md-4">
       <%= turbo_stream_from :agent_tasks %>
-      
-      <h3 class="my-4">Agent Demo</h3>
-      <%= form_with url: agents_path, method: :post do |form| %>
-        <%= form.text_field :task, placeholder: "Enter a task" %>
-        <%= form.submit "Run Agent", class: "btn btn-primary" %>
-      <% end %>
 
-      <div id="agent-progress" class="mt-5">
+      <div class="card h-100 shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h3 class="h5 mb-0">Agent Demo</h3>
+        </div>
+        <div class="card-body">
+          <p class="text-muted mb-3"><small>Agent has access to Wikipedia and can fetch URLs</small></p>
+          <%= form_with url: agents_path, method: :post, class: "mb-3" do |form| %>
+            <div class="input-group">
+              <%= form.text_field :task, placeholder: "Enter a task", class: "form-control" %>
+              <%= form.submit "Run Agent", class: "btn btn-primary" %>
+            </div>
+          <% end %>
+
+          <div id="agent-progress">
+          </div>
+        </div>
       </div>
     </div>
   </div>

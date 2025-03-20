@@ -18,6 +18,7 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" nonce="<%= request.content_security_policy_nonce %>"></script>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
@@ -26,16 +27,20 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">Raif Demo</a>
+        <a class="navbar-brand fw-bold" href="/">
+          Raif Demo
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <%= link_to "Admin Demo", raif.admin_model_completions_path, class: "nav-link" %>
+              <%= link_to raif.admin_model_completions_path, class: "btn btn-primary rounded-pill px-4 shadow-sm" do %>
+                <i class="bi bi-gear-fill me-2"></i>Admin Demo
+              <% end %>
             </li>
           </ul>
         </div>
