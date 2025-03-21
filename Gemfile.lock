@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/CultivateLabs/raif.git
-  revision: 8dede17f29bf2894ea1a58db2f55d1e59b1a4049
+  revision: 3b535c0ea7c01d98b1b86b741e91f6d0e85db333
   specs:
     raif (1.0.0)
       anthropic-rb
