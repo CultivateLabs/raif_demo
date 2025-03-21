@@ -4,7 +4,7 @@ class RunAgentJob < ApplicationJob
   def perform(task, creator)
     agent_invocation = Raif::AgentInvocation.new(
       task: task,
-      available_model_tools: [ Raif::ModelTools::WikipediaSearchTool, Raif::ModelTools::FetchUrlTool ],
+      available_model_tools: [ Raif::ModelTools::WikipediaSearch, Raif::ModelTools::FetchUrl ],
       creator: creator
     )
 
