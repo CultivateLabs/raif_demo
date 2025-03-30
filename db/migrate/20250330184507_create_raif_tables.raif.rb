@@ -71,7 +71,7 @@ class CreateRaifTables < ActiveRecord::Migration[8.0]
       t.timestamps
     end
 
-    create_table :raif_agent_invocations do |t|
+    create_table :raif_agents do |t|
       t.string :type, null: false
       t.string :llm_model_key, null: false
       t.text :task
@@ -92,18 +92,20 @@ class CreateRaifTables < ActiveRecord::Migration[8.0]
     end
 
     create_table :raif_model_completions do |t|
-      t.string :type, null: false
       t.references :source, polymorphic: true, index: true
       t.string :llm_model_key, null: false
       t.string :model_api_name, null: false
+      t.send json_column_type, :available_model_tools, null: false
       t.send json_column_type, :messages, null: false
       t.text :system_prompt
       t.integer :response_format, default: 0, null: false
+      t.string :response_format_parameter
       t.decimal :temperature, precision: 5, scale: 3
       t.integer :max_completion_tokens
       t.integer :completion_tokens
       t.integer :prompt_tokens
       t.text :raw_response
+      t.send json_column_type, :response_tool_calls
       t.integer :total_tokens
 
       t.timestamps

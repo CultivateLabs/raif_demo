@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_21_234840) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_30_184507) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -23,7 +23,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_21_234840) do
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
-  create_table "raif_agent_invocations", force: :cascade do |t|
+  create_table "raif_agents", force: :cascade do |t|
     t.string "type", null: false
     t.string "llm_model_key", null: false
     t.text "task"
@@ -42,7 +42,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_21_234840) do
     t.jsonb "conversation_history", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["creator_type", "creator_id"], name: "index_raif_agent_invocations_on_creator"
+    t.index ["creator_type", "creator_id"], name: "index_raif_agents_on_creator"
   end
 
   create_table "raif_conversation_entries", force: :cascade do |t|
@@ -77,19 +77,21 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_21_234840) do
   end
 
   create_table "raif_model_completions", force: :cascade do |t|
-    t.string "type", null: false
     t.string "source_type"
     t.bigint "source_id"
     t.string "llm_model_key", null: false
     t.string "model_api_name", null: false
+    t.jsonb "available_model_tools", null: false
     t.jsonb "messages", null: false
     t.text "system_prompt"
     t.integer "response_format", default: 0, null: false
+    t.string "response_format_parameter"
     t.decimal "temperature", precision: 5, scale: 3
     t.integer "max_completion_tokens"
     t.integer "completion_tokens"
     t.integer "prompt_tokens"
     t.text "raw_response"
+    t.jsonb "response_tool_calls"
     t.integer "total_tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

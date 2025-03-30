@@ -37,12 +37,12 @@ Raif.configure do |config|
   # A lambda that returns true if the current user is authorized to access admin controllers.
   # By default it returns false, so you must implement this in your application to use the admin controllers.
   # If your application's user model has an admin? method, you could use something like this:
-  config.authorize_admin_controller_action = -> { current_user.present? }
+  config.authorize_admin_controller_action = -> { true }
 
   # A lambda that returns true if the current user is authorized to access non-admin controllers.
   # By default it returns false, so you must implement this in your application to use the non-admin controllers.
   # If you wanted to allow access to all logged in users, you could use something like this:
-  config.authorize_controller_action = -> { current_user.present? }
+  config.authorize_controller_action = -> { true }
 
   # The system prompt intro for Raif::Task instances. Defaults to "You are a helpful assistant."
   # config.task_system_prompt_intro = "You are a helpful assistant."
@@ -50,12 +50,9 @@ Raif.configure do |config|
   # The system prompt intro for Raif::Conversation instances. Defaults to "You are a helpful assistant who is collaborating with a teammate."
   # config.conversation_system_prompt_intro = "You are a helpful assistant who is collaborating with a teammate."
 
-  # The system prompt intro for Raif::Agent instances.
-  # config.agent_system_prompt_intro = "You are an intelligent assistant that follows the ReAct (Reasoning + Acting) framework to complete tasks step by step using tool calls."
-
   # The conversation types that are available. Defaults to ["Raif::Conversation"]
-  # If you want to use a custom conversation type that inherits from Raif::Conversation, you can add them here.
-  # config.conversation_types = ["Raif::Conversation"]
+  # If you want to use custom conversation types that inherits from Raif::Conversation, you can add them here.
+  # config.conversation_types += ["Raif::MyConversation"]
 
   # The controller class for conversations. Defaults to "Raif::ConversationsController"
   # If you want to use a custom controller that inherits from Raif::ConversationsController, you can set it here.
@@ -67,6 +64,10 @@ Raif.configure do |config|
 
   # The method to call to get the current user. Defaults to :current_user
   # config.current_user_method = :current_user
+
+  # The agent types that are available. Defaults to Set.new(["Raif::Agents::ReActAgent", "Raif::Agents::NativeToolCallingAgent"])
+  # If you want to use custom agent types that inherits from Raif::Agent, you can add them here.
+  # config.agent_types += ["MyAgent"]
 
   # The superclass for Raif models. Defaults to "ApplicationRecord"
   # config.model_superclass = "ApplicationRecord"

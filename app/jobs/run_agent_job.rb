@@ -2,18 +2,18 @@ class RunAgentJob < ApplicationJob
   queue_as :default
 
   def perform(task, creator)
-    agent_invocation = Raif::AgentInvocation.new(
+    agent = Raif::Agents::ReActAgent.new(
       task: task,
       available_model_tools: [ Raif::ModelTools::WikipediaSearch, Raif::ModelTools::FetchUrl ],
       creator: creator
     )
 
-    agent_invocation.run! do |conversation_history_entry|
+    agent.run! do |conversation_history_entry|
       Turbo::StreamsChannel.broadcast_append_to(
         :agent_tasks,
         target: "agent-progress",
         partial: "agents/conversation_history_entry",
-        locals: { agent_invocation: agent_invocation, conversation_history_entry: conversation_history_entry }
+        locals: { agent: agent, conversation_history_entry: conversation_history_entry }
       )
     end
   end
