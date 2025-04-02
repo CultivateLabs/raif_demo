@@ -1,18 +1,3 @@
-GIT
-  remote: https://github.com/CultivateLabs/raif.git
-  revision: 67f96163b303710b183ef9938f81c767976bbd77
-  specs:
-    raif (1.0.0)
-      aws-sdk-bedrock
-      aws-sdk-bedrockruntime
-      faraday (>= 2.0)
-      json-schema (>= 5.0)
-      loofah (>= 2.21)
-      pagy
-      rails (>= 7.1)
-      reverse_markdown (>= 2.0)
-      turbo-rails (>= 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -259,6 +244,16 @@ GEM
       rack (>= 1.3)
     rackup (2.2.1)
       rack (>= 3)
+    raif (1.0.0)
+      aws-sdk-bedrock
+      aws-sdk-bedrockruntime
+      faraday (>= 2.0)
+      json-schema (>= 5.0)
+      loofah (>= 2.21)
+      pagy
+      rails (>= 7.1)
+      reverse_markdown (>= 2.0)
+      turbo-rails (>= 2.0)
     rails (8.0.2)
       actioncable (= 8.0.2)
       actionmailbox (= 8.0.2)
@@ -413,7 +408,7 @@ DEPENDENCIES
   pg (~> 1.1)
   propshaft
   puma (>= 5.0)
-  raif!
+  raif (= 1.0.0)
   rails (~> 8.0.2)
   rubocop-rails-omakase
   selenium-webdriver
