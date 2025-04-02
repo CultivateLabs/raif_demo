@@ -1,17 +1,17 @@
 GIT
   remote: https://github.com/CultivateLabs/raif.git
-  revision: c0525d16f58688a5dc4daf0340bd0a0c1371a63e
+  revision: 67f96163b303710b183ef9938f81c767976bbd77
   specs:
     raif (1.0.0)
       aws-sdk-bedrock
       aws-sdk-bedrockruntime
-      faraday
-      json-schema
-      loofah
+      faraday (>= 2.0)
+      json-schema (>= 5.0)
+      loofah (>= 2.21)
       pagy
       rails (>= 7.1)
-      reverse_markdown
-      turbo-rails
+      reverse_markdown (>= 2.0)
+      turbo-rails (>= 2.0)
 
 GEM
   remote: https://rubygems.org/
