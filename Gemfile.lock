@@ -1,9 +1,8 @@
 GIT
   remote: https://github.com/CultivateLabs/raif.git
-  revision: f536c511978982c4dd3e0521933da54647310336
+  revision: e4403bdba421403d87375f01aa5d462877434bd4
   specs:
     raif (1.0.0)
-      anthropic-rb
       aws-sdk-bedrock
       aws-sdk-bedrockruntime
       faraday
@@ -12,7 +11,6 @@ GIT
       pagy
       rails (>= 7.1)
       reverse_markdown
-      ruby-openai
       turbo-rails
 
 GEM
@@ -91,9 +89,6 @@ GEM
       uri (>= 0.13.1)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
-    anthropic-rb (0.6.0)
-      httpx (>= 1.1.5)
-      json-schema (>= 4.1.1)
     ast (2.4.2)
     aws-eventstream (1.3.2)
     aws-partitions (1.1067.0)
@@ -144,13 +139,10 @@ GEM
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
-    event_stream_parser (1.0.0)
     faraday (2.12.2)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
-    faraday-multipart (1.1.0)
-      multipart-post (~> 2.0)
     faraday-net_http (3.4.0)
       net-http (>= 0.5.0)
     fugit (1.11.1)
@@ -158,9 +150,6 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    http-2 (1.0.2)
-    httpx (1.4.2)
-      http-2 (>= 1.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.1.0)
@@ -207,7 +196,6 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.5)
     msgpack (1.8.0)
-    multipart-post (2.4.1)
     net-http (0.6.0)
       uri
     net-imap (0.5.6)
@@ -336,10 +324,6 @@ GEM
       rubocop (>= 1.72)
       rubocop-performance (>= 1.24)
       rubocop-rails (>= 2.30)
-    ruby-openai (8.0.0)
-      event_stream_parser (>= 0.3.0, < 2.0.0)
-      faraday (>= 1)
-      faraday-multipart (>= 1)
     ruby-progressbar (1.13.0)
     rubyzip (2.4.1)
     securerandom (0.4.1)
