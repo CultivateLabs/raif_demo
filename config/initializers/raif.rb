@@ -7,6 +7,9 @@ Raif.configure do |config|
   # Whether OpenAI models are enabled. Defaults to true
   # config.open_ai_models_enabled = true
 
+  # Whether OpenAI embedding models are enabled. Defaults to true
+  # config.open_ai_embedding_models_enabled = true
+
   # Your Anthropic API key. Defaults to ENV["ANTHROPIC_API_KEY"]
   # config.anthropic_api_key = ENV["ANTHROPIC_API_KEY"]
 
@@ -19,8 +22,17 @@ Raif.configure do |config|
   # The AWS Bedrock region to use. Defaults to "us-east-1"
   # config.aws_bedrock_region = "us-east-1"
 
+  # Prefix to apply to the model name in AWS Bedrock API calls (e.g. us.anthropic.claude-3-5-haiku-20241022-v1:0)
+  # config.aws_bedrock_model_name_prefix = "us"
+
+  # Whether Titan embedding models are enabled. Defaults to true
+  # config.aws_bedrock_titan_embedding_models_enabled = true
+
   # The default LLM model to use. Defaults to "open_ai_gpt_4o"
   # Available keys:
+  #   open_ai_gpt_4_1
+  #   open_ai_gpt_4_1_mini
+  #   open_ai_gpt_4_1_nano
   #   open_ai_gpt_4o_mini
   #   open_ai_gpt_4o
   #   open_ai_gpt_3_5_turbo
@@ -32,7 +44,18 @@ Raif.configure do |config|
   #   bedrock_claude_3_7_sonnet
   #   bedrock_claude_3_5_haiku
   #   bedrock_claude_3_opus
+  #
   # config.default_llm_model_key = "open_ai_gpt_4o"
+
+  # The default embedding model to use when calling Raif.generate_embedding!
+  # Defaults to "open_ai_text_embedding_3_small"
+  # Available keys:
+  #   open_ai_text_embedding_3_small
+  #   open_ai_text_embedding_3_large
+  #   open_ai_text_embedding_ada_002
+  #   bedrock_titan_embed_text_v2
+  #
+  # config.default_embedding_model_key = "open_ai_text_embedding_3_small"
 
   # A lambda that returns true if the current user is authorized to access admin controllers.
   # By default it returns false, so you must implement this in your application to use the admin controllers.
