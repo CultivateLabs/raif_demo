@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_30_184507) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_23_144261) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -42,6 +42,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_30_184507) do
     t.jsonb "conversation_history", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_raif_agents_on_created_at"
     t.index ["creator_type", "creator_id"], name: "index_raif_agents_on_creator"
   end
 
@@ -57,6 +58,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_30_184507) do
     t.text "model_response_message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_raif_conversation_entries_on_created_at"
     t.index ["creator_type", "creator_id"], name: "index_raif_conversation_entries_on_creator"
     t.index ["raif_conversation_id"], name: "index_raif_conversation_entries_on_raif_conversation_id"
   end
@@ -73,6 +75,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_30_184507) do
     t.integer "conversation_entries_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "response_format", default: 0, null: false
+    t.index ["created_at"], name: "index_raif_conversations_on_created_at"
     t.index ["creator_type", "creator_id"], name: "index_raif_conversations_on_creator"
   end
 
@@ -95,6 +99,11 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_30_184507) do
     t.integer "total_tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "prompt_token_cost", precision: 10, scale: 6
+    t.decimal "output_token_cost", precision: 10, scale: 6
+    t.decimal "total_cost", precision: 10, scale: 6
+    t.integer "retry_count", default: 0, null: false
+    t.index ["created_at"], name: "index_raif_model_completions_on_created_at"
     t.index ["source_type", "source_id"], name: "index_raif_model_completions_on_source"
   end
 
@@ -127,7 +136,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_30_184507) do
     t.string "llm_model_key", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["completed_at"], name: "index_raif_tasks_on_completed_at"
+    t.index ["created_at"], name: "index_raif_tasks_on_created_at"
     t.index ["creator_type", "creator_id"], name: "index_raif_tasks_on_creator"
+    t.index ["failed_at"], name: "index_raif_tasks_on_failed_at"
+    t.index ["started_at"], name: "index_raif_tasks_on_started_at"
+    t.index ["type", "completed_at"], name: "index_raif_tasks_on_type_and_completed_at"
+    t.index ["type", "failed_at"], name: "index_raif_tasks_on_type_and_failed_at"
+    t.index ["type", "started_at"], name: "index_raif_tasks_on_type_and_started_at"
     t.index ["type"], name: "index_raif_tasks_on_type"
   end
 
