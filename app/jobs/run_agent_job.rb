@@ -2,9 +2,8 @@ class RunAgentJob < ApplicationJob
   queue_as :default
 
   def perform(task, creator)
-    agent = Raif::Agents::ReActAgent.new(
+    agent = Raif::Agents::Demo.new(
       task: task,
-      available_model_tools: [ Raif::ModelTools::WikipediaSearch, Raif::ModelTools::FetchUrl ],
       creator: creator
     )
 

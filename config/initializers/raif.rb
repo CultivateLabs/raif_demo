@@ -93,7 +93,7 @@ Raif.configure do |config|
 
   # The agent types that are available. Defaults to Set.new(["Raif::Agents::ReActAgent", "Raif::Agents::NativeToolCallingAgent"])
   # If you want to use custom agent types that inherits from Raif::Agent, you can add them here.
-  # config.agent_types += ["MyAgent"]
+  config.agent_types += [ "Raif::Agents::Demo" ]
 
   # The superclass for Raif models. Defaults to "ApplicationRecord"
   # config.model_superclass = "ApplicationRecord"
