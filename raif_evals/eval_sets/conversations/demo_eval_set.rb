@@ -1,5 +1,4 @@
-class DemoEvalSet < Raif::Evals::EvalSet
-  # Setup method runs before each eval
+class Raif::Evals::Conversations::DemoEvalSet < Raif::Evals::EvalSet
   setup do
     @user = User.create!(email_address: "demo@example.com", password: "password")
     @conversation = Raif::Conversations::Demo.create!(creator: @user)

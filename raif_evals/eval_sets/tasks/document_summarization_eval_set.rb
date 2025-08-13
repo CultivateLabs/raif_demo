@@ -1,4 +1,4 @@
-class DocumentSummarizationTaskEvalSet < Raif::Evals::EvalSet
+class Raif::Evals::Tasks::DocumentSummarizationEvalSet < Raif::Evals::EvalSet
   eval "DocumentSummarization produces expected output" do
     user = User.create!(email_address: "demo@example.com", password: "password")
     document = Document.create!(content: file("arc.html"), user: user)
