@@ -70,6 +70,9 @@ Raif.configure do |config|
   # The system prompt intro for Raif::Task instances. Defaults to "You are a helpful assistant."
   # config.task_system_prompt_intro = "You are a helpful assistant."
 
+  # Whether the creator association is optional for Raif::Task. Defaults to true.
+  # config.task_creator_optional = true
+
   # The system prompt intro for Raif::Conversation instances. Defaults to "You are a helpful assistant who is collaborating with a teammate."
   # config.conversation_system_prompt_intro = "You are a helpful assistant who is collaborating with a teammate."
 
@@ -101,4 +104,12 @@ Raif.configure do |config|
   # Whether LLM API requests are enabled. Defaults to true.
   # Use this to globally disable requests to LLM APIs.
   # config.llm_api_requests_enabled = true
+
+  # The default LLM model to use for LLM-as-judge evaluations.
+  # If not set, falls back to the default_llm_model_key.
+  # config.evals_default_llm_judge_model_key = ENV["RAIF_EVALS_DEFAULT_LLM_JUDGE_MODEL_KEY"].presence
+
+  # Whether to output verbose information during evaluation runs. Defaults to false.
+  # When true, provides more detailed output including individual test results.
+  config.evals_verbose_output = true
 end

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   def current_user
-    @current_user =if User.count.zero?
+    @current_user = if User.count.zero?
       User.create!(email_address: "demo@example.com", password: "password")
     else
       User.first
