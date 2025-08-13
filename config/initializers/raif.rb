@@ -78,7 +78,7 @@ Raif.configure do |config|
 
   # The conversation types that are available. Defaults to ["Raif::Conversation"]
   # If you want to use custom conversation types that inherits from Raif::Conversation, you can add them here.
-  # config.conversation_types += ["Raif::MyConversation"]
+  config.conversation_types += [ "Raif::Conversations::Demo" ]
 
   # The controller class for conversations. Defaults to "Raif::ConversationsController"
   # If you want to use a custom controller that inherits from Raif::ConversationsController, you can set it here.

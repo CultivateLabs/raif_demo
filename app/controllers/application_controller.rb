@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def landing
-    @conversation = Raif::Conversation.find_or_initialize_by(creator: current_user)
+    @conversation = Raif::Conversations::Demo.find_or_initialize_by(creator: current_user)
     @conversation.save!
   end
 end
